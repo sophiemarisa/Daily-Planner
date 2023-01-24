@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-Website link: 
+Website link: https://sophiemarisa.github.io/Daily-Planner/
 
 Click on the coloured text areas and type the activity you want to do. When you are done click save. If you want to remove the activity delete all the text then hit save. 
 
