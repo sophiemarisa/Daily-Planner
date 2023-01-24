@@ -33,29 +33,26 @@ for (i = 0; i < textRow.length; i++) {
     else if (blockID > hour) {
         textRow[i].classList.add('future')
     }
+}
 
-    var results = set.filter(preSave => preSave.time === blockID);
-    console.log(results)
+for (i=0; i < preSave.length; i++){
 
-    
+    var count = 9;
+
+    while(count < 18){
+        addText(count, preSave[i]);
+        count ++;
+    }
 
 }
 
-for(i=0; i < textRow.length; i++)
+function addText(count, preSaveItem){
 
-for(i=0; i < prevSave.length; i++){
-    timeBlock = prevSave[i].time;
-    timeBlockText = prevSave[i].text;
-
-    for ( j=0; j < textRow.length; j++){
-
-        console.log(timeBlock, textRow[i].id)
-        if(timeBlock === textRow[i].id)
-            textRow[i].value = timeBlockText;
-        }
+    if(preSaveItem.time === count.toString()){
+        var text = document.getElementById(count.toString());
+        text.value = preSaveItem.text;
     }
-
-
+}
 
 
 document.addEventListener('click', function (e) {
@@ -74,9 +71,7 @@ document.addEventListener('click', function (e) {
                 }
 
                 var prevSave = JSON.parse(localStorage.getItem("memSave") || '[]');
-
                 prevSave.push(memSave);
-
                 localStorage.setItem("memSave", JSON.stringify(prevSave));
                 
             }
