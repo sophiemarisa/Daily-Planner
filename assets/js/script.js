@@ -1,6 +1,7 @@
 var datetime = null,
     date = null;
 
+//gets current time
 var update = function () {
     date = moment(new Date())
     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
@@ -12,14 +13,14 @@ var preSave = JSON.parse(localStorage.getItem("memSave"));
 var timeBlock = "";
 var timeBlockText = "";
 
+//adds current time to the page
 $(document).ready(function () {
     datetime = $('#currentDay')
     update();
     setInterval(update, 1000);
 });
 
-hour = 10;
-
+//checks the text area block's hour and compares against currernt hour
 for (i = 0; i < textRow.length; i++) {
 
     var blockID = textRow[i].id;
@@ -35,6 +36,7 @@ for (i = 0; i < textRow.length; i++) {
     }
 }
 
+//gets any activites saved in memory onto the page
 for (i=0; i < preSave.length; i++){
 
     var count = 9;
@@ -46,6 +48,7 @@ for (i=0; i < preSave.length; i++){
 
 }
 
+//function to compare the presave item to the text area block so the write activity gets put on the right time
 function addText(count, preSaveItem){
 
     if(preSaveItem.time === count.toString()){
@@ -54,7 +57,7 @@ function addText(count, preSaveItem){
     }
 }
 
-
+//event listner listens for button clicks then saves that text to the local storage 
 document.addEventListener('click', function (e) {
     let element = e.target;
     var saveTime = element.id
