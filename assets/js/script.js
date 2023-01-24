@@ -37,16 +37,25 @@ for (i = 0; i < textRow.length; i++) {
 }
 
 //gets any activites saved in memory onto the page
-for (i=0; i < preSave.length; i++){
 
-    var count = 9;
+console.log(preSave)
 
-    while(count < 18){
-        addText(count, preSave[i]);
-        count ++;
-    }
-
+if(preSave === null){
+    console.log("empty")
 }
+else{
+    for (i=0; i < preSave.length; i++){
+        var count = 9;
+        while(count < 18){
+            addText(count, preSave[i]);
+            count ++;
+        }
+    }
+}
+
+
+
+
 
 //function to compare the presave item to the text area block so the write activity gets put on the right time
 function addText(count, preSaveItem){
